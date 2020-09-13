@@ -9,7 +9,8 @@
 import UIKit
 
 protocol WeatherSearchWireframeProtocol: class {
-    static func assembleModule() -> UIViewController
+    static func assembleModule(apiService: WeatherSearchAPIServiceProtocol,
+                               cacheService: WeatherSearchCacheServiceProtocol) -> UIViewController
 }
 
 protocol WeatherSearchViewProtocol: class {

@@ -77,8 +77,6 @@ class WeatherResultTableViewCell: UITableViewCell {
     private func setupConstraints() {
         holderView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview().inset(10)
-//            make.left.equalToSuperview().offset(10)
-//            make.right.equalToSuperview().offset(-10)
         }
     }
 

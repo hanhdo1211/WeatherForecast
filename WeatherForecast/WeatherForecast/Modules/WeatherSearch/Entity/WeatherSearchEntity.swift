@@ -13,6 +13,7 @@ struct ForecastWeatherResponseModel: Mappable {
     var listDay: [DayResponseModel]?
     var returnCode: String?
     var returnMessage: String?
+    var exprieTime: TimeInterval?
     init?(map: Map) {
 
     }
@@ -21,6 +22,7 @@ struct ForecastWeatherResponseModel: Mappable {
         listDay         <- map["list"]
         returnCode      <- map["cod"]
         returnMessage   <- map["message"]
+        exprieTime      <- map["exprieTime"]
     }
 }
 
@@ -47,11 +49,11 @@ struct DayResponseModel: Mappable {
     }
 
     mutating func mapping(map: Map) {
-        timeInterval       <- map["dt"]
+        timeInterval    <- map["dt"]
         pressure        <- map["pressure"]
         humidity        <- map["humidity"]
         listWeather     <- map["weather"]
-        temp        <- map["temp"]
+        temp            <- map["temp"]
     }
 }
 

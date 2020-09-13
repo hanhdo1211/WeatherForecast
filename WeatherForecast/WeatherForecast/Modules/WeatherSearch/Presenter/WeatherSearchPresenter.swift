@@ -14,6 +14,7 @@ class WeatherSearchPresenter: WeatherSearchPresenterProtocol {
     
     private var timer: Timer?
     private var searchCity = ""
+    private let returnCodeSuccess = "200"
     
     func search(name: String) {
         timer?.invalidate()
@@ -34,15 +35,15 @@ class WeatherSearchPresenter: WeatherSearchPresenterProtocol {
 extension WeatherSearchPresenter: WeatherSearchInteractorOutputProtocol {
     func weatherSearchResult(_ result: ForecastWeatherResponseModel) {
         guard let returnCode = result.returnCode,
-            returnCode == "200",
+            returnCode == self.returnCodeSuccess,
             let listDay = result.listDay else {
-            self.weatherSearchError(result.returnMessage ?? "Something went wrong!")
+                self.weatherSearchError(result.returnMessage ?? R.unknownError)
             return
         }
         
         let displayModel = self.parseToDisplayModel(listDay)
         if displayModel.isEmpty {
-            self.weatherSearchError("Data empty")
+            self.weatherSearchError(R.dataEmptyError)
             return
         }
         
@@ -67,12 +68,16 @@ extension WeatherSearchPresenter: WeatherSearchInteractorOutputProtocol {
                     continue
             }
             
-            let dateString = "Date: \(self.parseToDateString(timeInterval))"
-            let avgTemp = String(format: "Average Temperature: %0fºC",
+            let dateString = String(format: R.formatDateLbl,
+                                    self.parseToDateString(timeInterval))
+            let avgTemp = String(format: R.formatAvgTempLbl,
                                  self.parseToAverageTemp(temp))  
-            let pressure = "Pressure: \(pressureValue)"
-            let humidity = "Humidity: \(humidityValue)%"
-            let desc = "Description: \(self.parseToDesc(weatherList))"
+            let pressure = String(format: R.formatPressureLbl,
+                                  pressureValue)
+            let humidity = String(format: R.formatHumidityLbl,
+                                  humidityValue)
+            let desc = String(format: R.formatDescriptionLbl,
+                              self.parseToDesc(weatherList))
             
             let displayModel = WeatherDisplayModel(date: dateString,
                                                    avgTemp: avgTemp,
@@ -92,12 +97,12 @@ extension WeatherSearchPresenter: WeatherSearchInteractorOutputProtocol {
         return formater.string(from: date)
     }
     
-    private func parseToAverageTemp(_ temp: TempResponseModel) -> Double {
+    private func parseToAverageTemp(_ temp: TempResponseModel) -> Int {
         guard let max = temp.max,
             let min = temp.min else {
                 return 0
         }
-        return ((max + min) / 2.0).rounded(.toNearestOrEven)
+        return Int(((max + min) / 2.0).rounded(.toNearestOrEven))
     }
     
     private func parseToDesc(_ weather: [WeatherResponseModel]) -> String {

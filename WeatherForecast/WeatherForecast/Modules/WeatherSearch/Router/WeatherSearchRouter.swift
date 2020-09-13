@@ -10,7 +10,8 @@ import UIKit
 
 class WeatherSearchRouter: WeatherSearchWireframeProtocol {
     
-    static func assembleModule() -> UIViewController {
+    static func assembleModule(apiService: WeatherSearchAPIServiceProtocol,
+                               cacheService: WeatherSearchCacheServiceProtocol) -> UIViewController {
         let view = WeatherSearchViewController()
         let presenter = WeatherSearchPresenter()
         let interactor = WeatherSearchInteractor()
@@ -21,7 +22,8 @@ class WeatherSearchRouter: WeatherSearchWireframeProtocol {
         presenter.interactor = interactor
         
         interactor.output = presenter
-        interactor.apiService = WeatherSearchAPIService()
+        interactor.apiService = apiService
+        interactor.cacheService = cacheService
         
         return view
     }

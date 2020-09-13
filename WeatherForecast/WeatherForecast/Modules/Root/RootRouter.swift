@@ -14,8 +14,9 @@ protocol RootWireframe: class {
 class RootRouter: RootWireframe {
     
     func showWeatherSearchScreen(in window: UIWindow) {
-        let weatherSearchViewController: UIViewController = WeatherSearchRouter.assembleModule()
-        let navigationController:UINavigationController = UINavigationController(rootViewController: weatherSearchViewController)
+        let weatherSearchViewController = WeatherSearchRouter.assembleModule(apiService: WeatherSearchAPIService(),
+                                                                             cacheService: WeatherSearchCacheService())
+        let navigationController = UINavigationController(rootViewController: weatherSearchViewController)
         
         window.rootViewController = navigationController;
 

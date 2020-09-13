@@ -14,7 +14,7 @@ class WeatherSearchViewController: UIViewController {
     private let displayHelper = WeatherSearchDisplayHepler()
     private lazy var searchBar: UISearchBar = {
         let bar = UISearchBar()
-        bar.placeholder = "Search City"
+        bar.placeholder = R.weatherSearchBarPlaceHolder
         return bar
     }()
     private lazy var tbvResult: UITableView = {
@@ -33,7 +33,7 @@ class WeatherSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Weather Forecast"
+        self.title = R.weatherForecastTitle
         self.setupSubView()
         self.setupLayout()
     }
@@ -99,8 +99,12 @@ extension WeatherSearchViewController: WeatherSearchViewProtocol {
         self.displayHelper.setData(data)
     }
     func showError(_ errorMsg: String) {
-        let alert = UIAlertController(title: "Error!", message: errorMsg, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default)
+        self.displayHelper.setData([])
+        let alert = UIAlertController(title: R.errorDialogTitle,
+                                      message: errorMsg,
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: R.okButton,
+                                   style: .default)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
