@@ -1,0 +1,14 @@
+//
+//  Shared.xcconfig
+//  WeatherForecast
+//
+//  Created by HanhDV on 9/13/20.
+//  Copyright © 2020 LAP12005. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+IPHONEOS_DEPLOYMENT_TARGET          = 10.0
+SWIFT_VERSION                       = 5.2
+
