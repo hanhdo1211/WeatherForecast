@@ -20,7 +20,7 @@ struct R {
     static let formatDateLbl = "Date: %@"
     static let formatAvgTempLbl = "Average Temperature: %dºC"
     static let formatPressureLbl = "Pressure: %d"
-    static let formatHumidityLbl = "Humidity: %d"
+    static let formatHumidityLbl = "Humidity: %d%%"
     static let formatDescriptionLbl = "Description: %@"
     
     

@@ -50,8 +50,8 @@ extension WeatherSearchPresenter: WeatherSearchInteractorOutputProtocol {
         self.view?.showWeatherData(displayModel)
     }
     
-    func weatherSearchError(_ errorMss: String) {
-        self.view?.showError(errorMss)
+    func weatherSearchError(_ errorMess: String) {
+        self.view?.showError(errorMess)
     }
     
     private func parseToDisplayModel(_ listDay: [DayResponseModel]) -> [WeatherDisplayModel] {

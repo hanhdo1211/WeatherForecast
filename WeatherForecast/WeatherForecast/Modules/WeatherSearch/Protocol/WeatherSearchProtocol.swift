@@ -30,11 +30,12 @@ protocol WeatherSearchPresenterProtocol: class {
 protocol WeatherSearchInteractorProtocol: class {
     var output: WeatherSearchInteractorOutputProtocol? { get set }
     var apiService: WeatherSearchAPIServiceProtocol! {get set}
+    var cacheService: WeatherSearchCacheServiceProtocol! {get set}
     
     func searchWeatherOfCity(name: String)
 }
 
 protocol WeatherSearchInteractorOutputProtocol: class {
     func weatherSearchResult(_ result: ForecastWeatherResponseModel)
-    func weatherSearchError(_ errorMss: String)
+    func weatherSearchError(_ errorMess: String)
 }
