@@ -14,16 +14,26 @@ protocol WeatherSearchWireframeProtocol: class {
 
 protocol WeatherSearchViewProtocol: class {
     var presenter: WeatherSearchPresenterProtocol! { get set }
+    
+    func showWeatherData(_ data: [WeatherDisplayModel])
+    func showError(_ errorMsg: String)
 }
 
 protocol WeatherSearchPresenterProtocol: class {
     var view: WeatherSearchViewProtocol? { get set }
     var interactor: WeatherSearchInteractorProtocol! { get set }
+    
+    func search(name: String)
 }
 
 protocol WeatherSearchInteractorProtocol: class {
     var output: WeatherSearchInteractorOutputProtocol? { get set }
+    var apiService: WeatherSearchAPIServiceProtocol! {get set}
+    
+    func searchWeatherOfCity(name: String)
 }
 
 protocol WeatherSearchInteractorOutputProtocol: class {
+    func weatherSearchResult(_ result: ForecastWeatherResponseModel)
+    func weatherSearchError(_ errorMss: String)
 }

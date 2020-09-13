@@ -19,6 +19,10 @@
 		198D92EE250E0D54004CE3FE /* WeatherSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D92ED250E0D54004CE3FE /* WeatherSearchRouter.swift */; };
 		198D92F0250E0FE4004CE3FE /* WeatherSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D92EF250E0FE4004CE3FE /* WeatherSearchInteractor.swift */; };
 		198D92F2250E1108004CE3FE /* WeatherSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D92F1250E1108004CE3FE /* WeatherSearchPresenter.swift */; };
+		198D92F5250E4109004CE3FE /* WeatherSearchAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D92F4250E4109004CE3FE /* WeatherSearchAPIService.swift */; };
+		198D92F7250E419D004CE3FE /* WeatherSearchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D92F6250E419D004CE3FE /* WeatherSearchEntity.swift */; };
+		198D92FB250E5240004CE3FE /* WeatherSearchDisplayHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D92FA250E5240004CE3FE /* WeatherSearchDisplayHepler.swift */; };
+		198D92FD250E53F7004CE3FE /* WeatherResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D92FC250E53F7004CE3FE /* WeatherResultTableViewCell.swift */; };
 		99BAF20E6CFE60B447348756 /* libPods-WeatherForecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D161A4E9917394E117BB384F /* libPods-WeatherForecast.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,10 @@
 		198D92ED250E0D54004CE3FE /* WeatherSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchRouter.swift; sourceTree = "<group>"; };
 		198D92EF250E0FE4004CE3FE /* WeatherSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchInteractor.swift; sourceTree = "<group>"; };
 		198D92F1250E1108004CE3FE /* WeatherSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchPresenter.swift; sourceTree = "<group>"; };
+		198D92F4250E4109004CE3FE /* WeatherSearchAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchAPIService.swift; sourceTree = "<group>"; };
+		198D92F6250E419D004CE3FE /* WeatherSearchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchEntity.swift; sourceTree = "<group>"; };
+		198D92FA250E5240004CE3FE /* WeatherSearchDisplayHepler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchDisplayHepler.swift; sourceTree = "<group>"; };
+		198D92FC250E53F7004CE3FE /* WeatherResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResultTableViewCell.swift; sourceTree = "<group>"; };
 		27ECFA5F1797D15C108B674D /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		B0071526FF0035A704C89651 /* Pods-WeatherForecastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastTests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecastTests/Pods-WeatherForecastTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D161A4E9917394E117BB384F /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +111,7 @@
 		198D9237250DFC5A004CE3FE /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				198D92F3250E40D7004CE3FE /* Network */,
 				198D929D250E08B3004CE3FE /* Modules */,
 				198D9238250DFC5A004CE3FE /* AppDelegate.swift */,
 				198D923C250DFC5A004CE3FE /* ViewController.swift */,
@@ -190,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				198D92EB250E0BF4004CE3FE /* WeatherSearchViewController.swift */,
+				198D92FA250E5240004CE3FE /* WeatherSearchDisplayHepler.swift */,
+				198D92FC250E53F7004CE3FE /* WeatherResultTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,8 +216,17 @@
 		198D92A7250E0A91004CE3FE /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				198D92F6250E419D004CE3FE /* WeatherSearchEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		198D92F3250E40D7004CE3FE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				198D92F4250E4109004CE3FE /* WeatherSearchAPIService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		3B55417B928CE4CA396C7379 /* Frameworks */ = {
@@ -379,12 +399,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				198D92A0250E0937004CE3FE /* RootRouter.swift in Sources */,
+				198D92F7250E419D004CE3FE /* WeatherSearchEntity.swift in Sources */,
 				198D923D250DFC5A004CE3FE /* ViewController.swift in Sources */,
 				198D92EE250E0D54004CE3FE /* WeatherSearchRouter.swift in Sources */,
 				198D92EA250E0B93004CE3FE /* WeatherSearchProtocol.swift in Sources */,
 				198D92F0250E0FE4004CE3FE /* WeatherSearchInteractor.swift in Sources */,
 				198D92F2250E1108004CE3FE /* WeatherSearchPresenter.swift in Sources */,
+				198D92F5250E4109004CE3FE /* WeatherSearchAPIService.swift in Sources */,
 				198D9239250DFC5A004CE3FE /* AppDelegate.swift in Sources */,
+				198D92FB250E5240004CE3FE /* WeatherSearchDisplayHepler.swift in Sources */,
+				198D92FD250E53F7004CE3FE /* WeatherResultTableViewCell.swift in Sources */,
 				198D92EC250E0BF4004CE3FE /* WeatherSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BN92UE96R7;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,7 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.hanhdv.NABChallenge.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -562,6 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BN92UE96R7;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -569,7 +595,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.hanhdv.NABChallenge.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

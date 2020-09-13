@@ -21,6 +21,7 @@ class WeatherSearchRouter: WeatherSearchWireframeProtocol {
         presenter.interactor = interactor
         
         interactor.output = presenter
+        interactor.apiService = WeatherSearchAPIService()
         
         return view
     }
