@@ -1,0 +1,9 @@
+use_modular_headers!
+target 'WeatherForecast' do
+  pod 'Alamofire'
+  pod 'AlamofireObjectMapper'
+  pod 'SnapKit'
+  target 'WeatherForecastTests' do
+      inherit! :search_paths
+  end
+end
